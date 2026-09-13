@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="موقع إسلامي شامل: القرآن الكريم بعدة قراءات، الأذان ومواقيت الصلاة، السبحة الإلكترونية، الأدعية، أسماء الله الحسنى، القبلة، والتقويم الهجري">
+    <meta name="theme-color" content="#0d7377">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>نور الإسلام | القرآن • الأذان • السبحة • المزيد</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;800&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☪</text></svg>">
+</head>
+<body>
+    <!-- خلفية زخرفية إسلامية -->
+    <div class="bg-pattern"></div>
+
+    <!-- الشريط العلوي -->
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">
+                <span class="logo-icon">☪</span>
+                <div>
+                    <h1>نور الإسلام</h1>
+                    <p>دليلك اليومي للإيمان</p>
+                </div>
+            </div>
+            <nav class="nav" id="mainNav">
+                <a href="#home" class="nav-link active">الرئيسية</a>
+                <a href="#quran" class="nav-link">القرآن الكريم</a>
+                <a href="#prayer" class="nav-link">الأذان والمواقيت</a>
+                <a href="#adhkar" class="nav-link">أذكار الصباح والمساء</a>
+                <a href="#tasbih" class="nav-link">السبحة</a>
+                <a href="#duas" class="nav-link">الأدعية</a>
+                <a href="#asma" class="nav-link">أسماء الله</a>
+                <a href="#qibla" class="nav-link">القبلة</a>
+                <a href="#calendar" class="nav-link">التقويم</a>
+            </nav>
+            <div class="header-actions">
+                <button id="themeToggle" class="icon-btn" title="تبديل الوضع">🌙</button>
+                <button id="menuToggle" class="icon-btn mobile-only">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ============== الرئيسية ============== -->
+        <section id="home" class="section hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+                    <h2 class="hero-title">مرحباً بك في نور الإسلام</h2>
+                    <p class="hero-subtitle">موقع شامل يجمع القرآن الكريم بعدة قراءات، مواقيت الصلاة والأذان، السبحة الإلكترونية، الأدعية المأثورة، أسماء الله الحسنى، واتجاه القبلة — كل ذلك بتصميم راقٍ وخدمة مجانية بالكامل.</p>
+                    
+                    <div class="hero-cards">
+                        <div class="feature-card" data-target="quran">
+                            <div class="card-icon">📖</div>
+                            <h3>القرآن الكريم</h3>
+                            <p>نص عربي أصيل + ترجمات + تلاوات متعددة + بحث ذكي</p>
+                        </div>
+                        <div class="feature-card" data-target="prayer">
+                            <div class="card-icon">🕌</div>
+                            <h3>الأذان والمواقيت</h3>
+                            <p>مواقيت دقيقة حسب موقعك + تشغيل الأذان + عداد للوقت المتبقي</p>
+                        </div>
+                        <div class="feature-card" data-target="tasbih">
+                            <div class="card-icon">📿</div>
+                            <h3>السبحة الإلكترونية</h3>
+                            <p>عداد ذكي للأذكار مع أهداف يومية وإحصائيات</p>
+                        </div>
+                        <div class="feature-card" data-target="qibla">
+                            <div class="card-icon">🧭</div>
+                            <h3>اتجاه القبلة</h3>
+                            <p>بوصلة حية دقيقة نحو الكعبة المشرفة</p>
+                        </div>
+                    </div>
+
+                    <!-- آية اليوم -->
+                    <div class="daily-ayah card">
+                        <h3>✦ آية اليوم ✦</h3>
+                        <div id="dailyAyahText" class="ayah-text">جاري التحميل...</div>
+                        <div id="dailyAyahMeta" class="ayah-meta"></div>
+                        <button id="newAyahBtn" class="btn btn-outline">آية أخرى</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============== القرآن الكريم ============== -->
+        <section id="quran" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>القرآن الكريم</h2>
+                    <p>اقرأ واستمع وتدبر كتاب الله بعدة روايات وتلاوات</p>
+                </div>
+
+                <div class="quran-controls card">
+                    <div class="control-row">
+                        <div class="form-group">
+                            <label>اختر السورة</label>
+                            <select id="surahSelect" class="select"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>رواية / طبعة النص</label>
+                            <select id="editionSelect" class="select">
+                                <option value="quran-uthmani">عثماني (حفص)</option>
+                                <option value="quran-simple">نص مبسط</option>
+                                <option value="ar.abdulbasitmurattal">عبد الباسط (صوت)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>القارئ (للتلاوة)</label>
+                            <select id="reciterSelect" class="select">
+                                <option value="ar.alafasy">مشاري راشد العفاسي</option>
+                                <option value="ar.abdulbasitmurattal">عبد الباسط عبد الصمد</option>
+                                <option value="ar.husary">محمود خليل الحصري</option>
+                                <option value="ar.minshawi">محمد صديق المنشاوي</option>
+                                <option value="ar.shaatree">أبو بكر الشاطري</option>
+                                <option value="ar.ahmedajamy">أحمد العجمي</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>الترجمة</label>
+                            <select id="translationSelect" class="select">
+                                <option value="none">بدون ترجمة</option>
+                                <option value="en.sahih">إنجليزي - صحيح إنترناشونال</option>
+                                <option value="ar.muyassar">تفسير ميسر (عربي)</option>
+                                <option value="fr.hamidullah">فرنسي</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-row">
+                        <button id="loadSurahBtn" class="btn btn-primary">عرض السورة</button>
+                        <button id="playSurahBtn" class="btn btn-secondary">▶ تشغيل التلاوة الكاملة</button>
+                        <button id="stopAudioBtn" class="btn btn-outline">⏹ إيقاف</button>
+                        <button id="saveBookmarkBtn" class="btn btn-outline" title="حفظ موضع القراءة الحالي">🔖 حفظ الموضع</button>
+                        <button id="goToBookmarkBtn" class="btn btn-outline" title="الانتقال لآخر قراءة محفوظة">📖 آخر قراءة</button>
+                        <div class="search-box">
+                            <input type="text" id="quranSearch" placeholder="ابحث في القرآن...">
+                            <button id="searchBtn" class="btn btn-primary">بحث</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="quranContent" class="quran-content card">
+                    <div class="placeholder">اختر سورة ثم اضغط "عرض السورة"</div>
+                </div>
+
+                <div id="audioPlayer" class="audio-player card hidden">
+                    <audio id="quranAudio" controls></audio>
+                    <div id="audioInfo"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============== الأذان والمواقيت ============== -->
+        <section id="prayer" class="section alt-bg">
+            <div class="container">
+                <div class="section-header">
+                    <h2>مواقيت الصلاة والأذان</h2>
+                    <p>مواقيت دقيقة حسب موقعك الجغرافي مع إمكانية تشغيل الأذان</p>
+                </div>
+
+                <div class="prayer-setup card">
+                    <div class="control-row">
+                        <div class="form-group">
+                            <label>المدينة</label>
+                            <input type="text" id="cityInput" class="input" placeholder="مثال: الرياض، مكة، القاهرة" value="مكة">
+                        </div>
+                        <div class="form-group">
+                            <label>الدولة</label>
+                            <input type="text" id="countryInput" class="input" placeholder="مثال: السعودية، مصر" value="السعودية">
+                        </div>
+                        <div class="form-group">
+                            <label>طريقة الحساب</label>
+                            <select id="methodSelect" class="select">
+                                <option value="4">أم القرى (مكة)</option>
+                                <option value="3">رابطة العالم الإسلامي</option>
+                                <option value="2">الجمعية الإسلامية لأمريكا الشمالية</option>
+                                <option value="5">الهيئة المصرية</option>
+                                <option value="1">جامعة العلوم الإسلامية كراتشي</option>
+                            </select>
+                        </div>
+                        <button id="getPrayerBtn" class="btn btn-primary">احسب المواقيت</button>
+                        <button id="useLocationBtn" class="btn btn-secondary">📍 استخدم موقعي</button>
+                    </div>
+                </div>
+
+                <div id="prayerTimes" class="prayer-grid">
+                    <!-- تُملأ ديناميكياً -->
+                </div>
+
+                <div class="next-prayer card" id="nextPrayerCard">
+                    <h3>الصلاة القادمة</h3>
+                    <div id="nextPrayerName" class="next-name">—</div>
+                    <div id="nextPrayerCountdown" class="countdown">—</div>
+                </div>
+
+                <div class="adhan-controls card">
+                    <h3>تشغيل الأذان والإشعارات</h3>
+                    <p>اختر صوت الأذان أو فعّل الإشعارات التلقائية عند دخول وقت الصلاة</p>
+                    <div class="adhan-buttons">
+                        <button class="btn btn-outline adhan-play" data-src="https://cdn.aladhan.com/audio/adhan/1.mp3">أذان 1</button>
+                        <button class="btn btn-outline adhan-play" data-src="https://cdn.aladhan.com/audio/adhan/2.mp3">أذان 2</button>
+                        <button class="btn btn-outline adhan-play" data-src="https://cdn.aladhan.com/audio/adhan/3.mp3">أذان 3</button>
+                        <button id="stopAdhanBtn" class="btn btn-secondary">إيقاف</button>
+                        <button id="enableNotificationsBtn" class="btn btn-primary">🔔 تفعيل إشعارات الأذان</button>
+                    </div>
+                    <p id="notificationStatus" class="small" style="margin-top:0.75rem;color:var(--text-muted);"></p>
+                    <audio id="adhanAudio"></audio>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============== أذكار الصباح والمساء ============== -->
+        <section id="adhkar" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>أذكار الصباح والمساء</h2>
+                    <p>اضغط على العداد بجانب كل ذكر حتى يكتمل العدد</p>
+                </div>
+
+                <div class="adhkar-tabs card" style="margin-bottom:1.5rem;display:flex;gap:0.75rem;justify-content:center;">
+                    <button class="btn btn-primary adhkar-tab active" data-type="morning">أذكار الصباح</button>
+                    <button class="btn btn-outline adhkar-tab" data-type="evening">أذكار المساء</button>
+                </div>
+
+                <div id="adhkarList" class="duas-grid">
+                    <!-- تُملأ ديناميكياً من JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============== السبحة الإلكترونية ============== -->
+        <section id="tasbih" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>السبحة الإلكترونية</h2>
+                    <p>عداد ذكي للأذكار مع أهداف وإحصائيات يومية</p>
+                </div>
+
+                <div class="tasbih-layout">
+                    <div class="tasbih-main card">
+                        <div class="dhikr-select">
+                            <label>اختر الذكر</label>
+                            <select id="dhikrSelect" class="select">
+                                <option value="سبحان الله">سبحان الله</option>
+                                <option value="الحمد لله">الحمد لله</option>
+                                <option value="الله أكبر">الله أكبر</option>
+                                <option value="لا إله إلا الله">لا إله إلا الله</option>
+                                <option value="أستغفر الله">أستغفر الله</option>
+                                <option value="اللهم صل على محمد">اللهم صل على محمد</option>
+                                <option value="سبحان الله وبحمده">سبحان الله وبحمده</option>
+                                <option value="لا حول ولا قوة إلا بالله">لا حول ولا قوة إلا بالله</option>
+                            </select>
+                        </div>
+
+                        <div class="counter-display">
+                            <div id="currentDhikr" class="current-dhikr">سبحان الله</div>
+                            <div id="countDisplay" class="count-number">0</div>
+                            <div class="target-info">الهدف: <span id="targetDisplay">33</span></div>
+                            <div class="progress-ring">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="ring-bg" cx="60" cy="60" r="54"/>
+                                    <circle id="progressCircle" class="ring-progress" cx="60" cy="60" r="54"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="tasbih-actions">
+                            <button id="countBtn" class="btn btn-primary btn-large">+1</button>
+                            <button id="resetCountBtn" class="btn btn-outline">إعادة</button>
+                            <button id="setTargetBtn" class="btn btn-secondary">تعيين هدف</button>
+                        </div>
+
+                        <div class="vibration-toggle">
+                            <label><input type="checkbox" id="vibrateToggle" checked> اهتزاز عند كل عدّة</label>
+                        </div>
+                    </div>
+
+                    <div class="tasbih-stats card">
+                        <h3>إحصائيات اليوم</h3>
+                        <div id="dailyStats" class="stats-list">
+                            <div class="stat-item"><span>إجمالي الأذكار</span><strong id="totalToday">0</strong></div>
+                            <div class="stat-item"><span>عدد الجولات</span><strong id="roundsToday">0</strong></div>
+                        </div>
+                        <h4>أكثر الأذكار</h4>
+                        <ul id="topDhikrList"></ul>
+                        <button id="clearStatsBtn" class="btn btn-outline btn-sm">مسح الإحصائيات</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============== الأدعية ============== -->
+        <section id="duas" class="section alt-bg">
+            <div class="container">
+                <div class="section-header">
+                    <h2>الأدعية المأثورة</h2>
+                    <p>مجموعة مختارة من الأدعية الصحيحة من القرآن والسنة</p>
+                </div>
+                <div class="duas-grid" id="duasGrid">
+                    <!-- تُملأ من JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============== أسماء الله الحسنى ============== -->
+        <section id="asma" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>أسماء الله الحسنى</h2>
+                    <p>الـ 99 اسماً مع المعنى والشرح المختصر</p>
+                </div>
+                <div class="asma-grid" id="asmaGrid">
+                    <!-- تُملأ من JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============== القبلة ============== -->
+        <section id="qibla" class="section alt-bg">
+            <div class="container">
+                <div class="section-header">
+                    <h2>اتجاه القبلة</h2>
+                    <p>بوصلة حية تشير إلى الكعبة المشرفة</p>
+                </div>
+                <div class="qibla-container card">
+                    <div class="qibla-info">
+                        <p id="qiblaStatus">اضغط الزر للحصول على اتجاه القبلة حسب موقعك</p>
+                        <p id="qiblaDegree" class="degree">—°</p>
+                        <p id="distanceToKaaba"></p>
+                    </div>
+                    <div class="compass-wrapper">
+                        <div class="compass" id="compass">
+                            <div class="compass-rose"></div>
+                            <div class="needle" id="needle"></div>
+                            <div class="kaaba-marker">🕋</div>
+                        </div>
+                    </div>
+                    <button id="getQiblaBtn" class="btn btn-primary">تحديد اتجاه القبلة</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============== التقويم ============== -->
+        <section id="calendar" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>التقويم الهجري والميلادي</h2>
+                    <p>تحويل التواريخ ومعرفة المناسبات الإسلامية</p>
+                </div>
+                <div class="calendar-layout">
+                    <div class="card">
+                        <h3>اليوم</h3>
+                        <div id="todayGregorian" class="date-display"></div>
+                        <div id="todayHijri" class="date-display hijri"></div>
+                    </div>
+                    <div class="card">
+                        <h3>تحويل تاريخ</h3>
+                        <div class="form-group">
+                            <label>ميلادي ← هجري</label>
+                            <input type="date" id="gregDate" class="input">
+                            <button id="toHijriBtn" class="btn btn-primary btn-sm">تحويل</button>
+                            <div id="hijriResult" class="result"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>هجري ← ميلادي</label>
+                            <div class="hijri-inputs">
+                                <input type="number" id="hijriDay" placeholder="يوم" min="1" max="30" class="input">
+                                <input type="number" id="hijriMonth" placeholder="شهر" min="1" max="12" class="input">
+                                <input type="number" id="hijriYear" placeholder="سنة" min="1" class="input">
+                            </div>
+                            <button id="toGregBtn" class="btn btn-primary btn-sm">تحويل</button>
+                            <div id="gregResult" class="result"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>نور الإسلام — موقع إسلامي مجاني شامل</p>
+            <p>البيانات من APIs مفتوحة: AlQuran.cloud و AlAdhan.com</p>
+            <p class="small">صُمم بعناية لخدمة المسلمين حول العالم • لا إعلانات • لا تتبع</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
